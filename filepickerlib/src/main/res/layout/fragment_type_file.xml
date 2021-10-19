@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/layout_path"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#dddddd"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_path"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:ellipsize="middle"
+            android:gravity="left|center"
+            android:singleLine="true"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/lfile_back_bg"
+            android:clickable="true"
+            android:drawableLeft="@mipmap/lfile_up"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="上一级" />
+    </LinearLayout>
+
+    <com.ckw.filepickerlib.widget.EmptyRecyclerView
+        android:layout_below="@+id/layout_path"
+        android:id="@+id/recylerview_file"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       />
+    <include
+        android:id="@+id/empty_view"
+        android:layout_below="@+id/layout_path"
+        layout="@layout/lfile_emptyview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+
+
+</RelativeLayout>
