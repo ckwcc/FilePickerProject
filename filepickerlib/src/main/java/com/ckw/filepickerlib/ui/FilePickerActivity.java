@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 
 import com.ckw.filepickerlib.R;
@@ -25,7 +26,8 @@ import java.util.List;
 public class FilePickerActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
-    private Toolbar mToolbar;
+    ImageView mIvBack;
+//    private Toolbar mToolbar;
     List<String> titles = new ArrayList<>();
     private List<Fragment> mFragments;
     private ParamEntity mParamEntity;
@@ -35,13 +37,20 @@ public class FilePickerActivity extends AppCompatActivity {
         setTheme(mParamEntity.getTheme());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_picker);
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(mToolbar);
+//        getSupportActionBar().setHomeButtonEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initToolbar();
         tabLayout = findViewById(R.id.tl_tabs);
         viewPager = findViewById(R.id.vp_content);
+        mIvBack = findViewById(R.id.iv_file_back);
+        mIvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         initFragments();
 
         viewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
@@ -74,13 +83,13 @@ public class FilePickerActivity extends AppCompatActivity {
      * 更新Toolbar展示
      */
     private void initToolbar() {
-        getSupportActionBar().setTitle("附件上传");
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+//        getSupportActionBar().setTitle("附件上传");
+//        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
     }
 
     private List<Fragment>  initFragments(){

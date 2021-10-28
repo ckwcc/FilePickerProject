@@ -7,11 +7,30 @@
     android:orientation="vertical"
    >
 
-    <android.support.v7.widget.Toolbar
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <ImageView
+            android:id="@+id/iv_file_back"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_back"
+            android:layout_width="56dp"
+            android:layout_height="30dp"/>
+
+        <TextView
+            android:text="附件上传"
+            android:textSize="20sp"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <!--<android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        />
+        />-->
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tl_tabs"
