@@ -5,6 +5,7 @@ import java.io.FileFilter;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -21,7 +22,9 @@ public class FileUtils {
         }
 
         for (int i = 0; i < files.length; i++) {
-            result.add(files[i]);
+            if(!files[i].isDirectory()){
+                result.add(files[i]);
+            }
         }
         Collections.sort(result, new FileComparator());
         return result;
@@ -36,6 +39,12 @@ public class FileUtils {
         final String[] units = new String[]{"B", "KB", "MB", "GB", "TB"};
         int digitGroups = (int) (Math.log10(size) / Math.log10(1024));
         return new DecimalFormat("#").format(size / Math.pow(1024, digitGroups)) + " " + units[digitGroups];
+    }
+
+    public static String getNormalTime(long time){
+        java.text.SimpleDateFormat df = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        String dateTime=df.format(new Date(time));
+        return dateTime;
     }
 
     /**

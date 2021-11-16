@@ -21,6 +21,13 @@ public class FileComparator implements Comparator<File> {
             return 1;
         }
         // Sort the directories alphabetically
-        return f1.getName().compareToIgnoreCase(f2.getName());
+        if(f1.lastModified() < f2.lastModified()){
+            return -1;
+        }else if(f1.lastModified() == f2.lastModified()){
+            return 0;
+        }else{
+            return 1;
+        }
+//        return f1.getName().compareToIgnoreCase(f2.getName());
     }
 }

@@ -72,7 +72,7 @@ public class PathAdapter extends RecyclerView.Adapter<PathAdapter.PathViewHolder
         if (file.isFile()) {
             updateFileIconStyle(holder.ivType);
             holder.tvName.setText(file.getName());
-            holder.tvDetail.setText(mContext.getString(R.string.lfile_FileSize) + " " + FileUtils.getReadableFileSize(file.length()));
+            holder.tvDetail.setText(FileUtils.getNormalTime(file.lastModified()) + " / "+mContext.getString(R.string.lfile_FileSize) + " " + FileUtils.getReadableFileSize(file.length()));
             holder.cbChoose.setVisibility(View.VISIBLE);
         } else {
             updateFloaderIconStyle(holder.ivType);
